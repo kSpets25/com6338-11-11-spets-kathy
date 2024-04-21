@@ -16,8 +16,9 @@ const makePoemHTML = (poemData) => { //get poem data
   console.log('poem', (poemData))
 
   const title = makeTag('h2')(data.title)
-  const author = pipe(makeTag('em'), (makeTag('h3')))(data.author)
+  const author = pipe(makeTag('em'), (makeTag('h3')))("by:  " + data.author)
 
+  const lineBr = makeTag('br')
   const lines = makeTag('p')(data.lines)
 
   const thePoem = `${title} ${author} ${lines}`
