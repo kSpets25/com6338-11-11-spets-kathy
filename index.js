@@ -9,7 +9,20 @@ const pipe = (...fns) => firstArg => fns.reduce((returnValue, fn) => fn(returnVa
 const makeTag = tag => str => `<${tag}>${str}</${tag}>`
 
 // complete this function
-const makePoemHTML = () => {}
+//const makePoemHTML = () => {}
+const makePoemHTML = (poemData) => { //get poem data
+
+  const data = poemData[0] 
+  console.log('poem', (poemData))
+
+  const title = makeTag('h2')(data.title)
+  const author = pipe(makeTag('em'), (makeTag('h3')))(data.author)
+
+  const lines = makeTag('p')(data.lines)
+
+  const thePoem = `${title} ${author} ${lines}`
+  return thePoem
+}
 
 
 
